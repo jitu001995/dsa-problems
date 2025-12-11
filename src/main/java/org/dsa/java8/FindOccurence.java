@@ -42,5 +42,10 @@ public class FindOccurence {
 
      System.out.println("nonRepeating Character :: "+nonRepeatChar);
 
+     Character nonRepeatChar1 = str.chars().mapToObj(c->(char)c).collect(
+                           Collectors.groupingBy(Function.identity(),Collectors.counting()
+                           )).entrySet().stream().filter(chh->chh.getValue()==1).map(Map.Entry::getKey).findFirst().orElse(null);
+        System.out.println("nonRepeating Character1 :: "+nonRepeatChar1);
+     System.out.print(nonRepeatChar1);
     }
 }

@@ -11,7 +11,7 @@ public class Rotated_Sorted_Array_2 {
 
     public static boolean searchInArray(int[] arr,int target){
          int lo = 0;
-         int hi = arr.length-1;
+         int hi = arr. length-1;
          while(lo <= hi){
              int mid = lo+(hi-lo)/2;
 

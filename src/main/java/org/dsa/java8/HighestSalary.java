@@ -32,8 +32,20 @@ public class HighestSalary {
                 ));
 
         System.out.println("Emp Obj1 :: "+empMap1);
+        Map<String,Employee> empMap2 = empList.stream().collect(Collectors.groupingBy(Employee::getDepartment,
+                                                 Collectors.collectingAndThen(
+                                                         Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)),Optional::get
+                                                 )));
+
+        System.out.println("Highest Salary by Dept2 :: "+empMap2);
 
 
+
+        // find second Highest Salary
+        Employee emp = empList.stream().sorted(Comparator.comparingDouble(Employee::getSalary).reversed()).skip(1).findFirst().orElse(null);
+      System.out.println("Second Highest Salary :: "+ emp);
+
+      
 
     }
 
