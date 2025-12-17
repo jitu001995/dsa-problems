@@ -15,7 +15,7 @@ public class Rotate_Array{
     private static void rotate(int[] arr, int k) {
 
         int n = arr.length;
-        k = k%n;
+        k = k%n;   // if k is greaten n that's why this operation.
         rotateArray(arr,0,n-1);
         rotateArray(arr,0,k-1);
         rotateArray(arr,k,n-1);
