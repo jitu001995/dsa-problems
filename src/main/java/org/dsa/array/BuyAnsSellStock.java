@@ -8,11 +8,11 @@ public class BuyAnsSellStock {
     }
 
     private static int maxProfitSoFar(int[] arr) {
-        int minSoFar = arr[0];
+        int minSoFar = arr[0];  //lowest stock price seen till now This represents the best day to buy so far
         int ans = 0;
-
         for(int i=1; i<arr.length; i++){
-            int profit = arr[i]-minSoFar;
+            int profit = arr[i]-minSoFar;    // arr[i] → price on current day (sell day)
+                                               //minSoFar → lowest price before today (buy day)
             if(profit > ans){
                 ans = profit;
             }
