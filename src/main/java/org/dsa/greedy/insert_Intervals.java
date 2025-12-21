@@ -31,7 +31,7 @@ public class insert_Intervals {
                  result.add(newInterval);
                   newInterval = curr;
              }else{
-                 newInterval[0] = Math.max(newInterval[0], curr[0]);
+                 newInterval[0] = Math.min(newInterval[0], curr[0]);
                  newInterval[1] = Math.max(newInterval[1], curr[1]);
              }
          }
