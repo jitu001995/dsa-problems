@@ -2,7 +2,7 @@ package org.dsa.dp.array.BU;
 
 public class House_Robber {
     public static void main(String[] args){
-        int[] arr={1,2,3,1};
+        int[] arr={1,2,3,1}; 
 
         int result = rob(arr);
 
