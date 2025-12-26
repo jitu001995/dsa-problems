@@ -18,6 +18,9 @@ public class Product_Of_Array_Except_Itself {
 
         int[] result8 = productArrayExceptItself8(arr);
         System.out.println("Product Array 7 :: "+Arrays.toString(result8));
+
+        int[] result9 = productExceptIteself9(arr);
+        System.out.println("product Array :: "+Arrays.toString(result9));
     }
 
     private static int[] productExceptItself(int[] arr) {
@@ -93,6 +96,21 @@ public class Product_Of_Array_Except_Itself {
         output[0] = 1;
         for(int i=1; i<n; i++){
             output[i] = output[i-1]*arr[i-1];
+        }
+        int suffix = 1;
+        for(int i=n-1; i>=0; i--){
+            output[i] = output[i]*suffix;
+            suffix *=arr[i];
+        }
+        return output;
+    }
+
+    public static int[] productExceptIteself9(int[] arr){
+        int n = arr.length;
+        int[] output = new int[n];
+        output[0]=1;
+        for(int i=1; i<n; i++){
+            output[i]=output[i-1]*arr[i-1];
         }
         int suffix = 1;
         for(int i=n-1; i>=0; i--){

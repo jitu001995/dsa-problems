@@ -7,6 +7,10 @@ public class MaxSubArraySum_Size_K {
         System.out.println("------------MaxSubArraySum----------");
         int result2 = maxSubArraySumOfSizeK(arr,k);
         System.out.println("Result2 :: "+result2);
+
+        System.out.println("------------MaxSubArraySum 33----------");
+       int result3 =  findMaxSumOfSubArray2(arr,k);
+       System.out.println("result :: "+result3);
     }
 
     private static int maxSubArraySumOfSizeK(int[] arr, int k) {
@@ -16,6 +20,21 @@ public class MaxSubArraySum_Size_K {
             sum +=arr[i];
         }
         ans = sum;
+        for(int i=k; i<arr.length; i++){
+            sum +=arr[i];
+            sum -=arr[i-k];
+            ans = Math.max(ans,sum);
+        }
+        return ans;
+    }
+
+
+    public static int findMaxSumOfSubArray2(int[] arr,int k){
+        int sum = 0;
+        int ans = 0;
+        for(int i=0; i<k; i++){
+            sum += arr[i];
+        }
         for(int i=k; i<arr.length; i++){
             sum +=arr[i];
             sum -=arr[i-k];

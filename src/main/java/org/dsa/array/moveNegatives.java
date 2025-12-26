@@ -27,29 +27,4 @@ public class moveNegatives {
         }
     }
 
-  // this method mentaind order
-    public static void moveNegativesStableWithOrder(int[] arr) {
-        int[] temp = new int[arr.length];
-        int index = 0;
-
-        // Copy negatives
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < 0) {
-                temp[index++] = arr[i];
-            }
-        }
-
-        // Copy positives
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] >= 0) {
-                temp[index++] = arr[i];
-            }
-        }
-
-        // Copy back
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = temp[i];
-        }
-    }
-
 }

@@ -12,10 +12,12 @@ public class FindMin_Rotated_Search_Array {
        int res2 =  findMin2(arr);
        System.out.println("Result 2 :"+res2);
 
+        int res3 = findMin3(arr);
+        System.out.println("Result 3 :: "+res3);
+
     }
 
     public static int findMin(int[] arr) {
-        Arrays.sort(arr);
         int low = 0;
         int hi = arr.length-1;
         int ans = Integer.MAX_VALUE;
@@ -37,20 +39,42 @@ public class FindMin_Rotated_Search_Array {
     }
 
     public static int findMin2(int[] arr){
-        Arrays.sort(arr);
+
         int lo=0;
         int hi=arr.length-1;
         int ans = Integer.MAX_VALUE;
         while(lo <= hi){
             int mid = lo+(hi-lo)/2;
-            if(arr[lo] < arr[hi]){
+            if(arr[lo] <= arr[hi]){
                 ans = Math.min(ans,arr[lo]);
                 break;
             }else if(arr[lo] <= arr[mid]){
-                ans = Math.min(ans,arr[mid]);
+                ans = Math.min(ans,arr[lo]);
                 lo = mid+1;
             }else{
-                hi = mid+1;
+                hi = mid-1;
+                ans = Math.min(ans,arr[mid]);
+            }
+        }
+        return ans;
+    }
+
+
+    public static int findMin3(int[] arr){
+
+        int lo=0;
+        int hi=arr.length-1;
+        int ans = Integer.MAX_VALUE;
+        while(lo <= hi){
+            int mid = lo+(hi-lo)/2;
+            if(arr[lo]<=arr[hi]){
+                ans = Math.min(ans,arr[lo]);
+                break;
+            }else if(arr[lo]<=arr[mid]){
+                ans = Math.min(ans,arr[lo]);
+                lo=mid+1;
+            }else{
+                hi=mid-1;
                 ans = Math.min(ans,arr[mid]);
             }
         }
