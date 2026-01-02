@@ -47,4 +47,16 @@ public class Majorit_Element {
         }
         return candidate;
     }
+
+    public static int majorityEle(int[] nums){
+        int count =0;
+        int candidate = 0;
+        for(int no : nums){
+            if(count == 0){
+                candidate = no;
+            }
+            count +=(no==candidate)?1:-1;
+        }
+        return candidate;
+    }
 }

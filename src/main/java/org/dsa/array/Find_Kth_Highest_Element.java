@@ -32,4 +32,16 @@ public class Find_Kth_Highest_Element {
         return pq.peek();
 
     }
+
+
+    public static int findKthHighest3(int[] arr, int k){
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for(Integer no : arr){
+            pq.add(no);
+            if(pq.size() > k){
+                pq.poll();
+            }
+        }
+        return pq.peek();
+    }
 }

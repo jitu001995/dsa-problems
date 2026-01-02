@@ -2,6 +2,10 @@ package org.dsa.array;
 
 public class TrappingRainWater {
 
+    public static void main(String[] args) {
+        int[] height = {4, 2, 0, 3, 2, 5};
+        System.out.println("Trapped water = " + trap(height));
+    }
     public static int trap(int[] height) {
         int left = 0, right = height.length - 1;
         int leftMax = 0, rightMax = 0;
@@ -28,9 +32,5 @@ public class TrappingRainWater {
         return water;
     }
 
-    public static void main(String[] args) {
-        int[] height = {4, 2, 0, 3, 2, 5};
-        System.out.println("Trapped water = " + trap(height));
-    }
 }
 

@@ -14,6 +14,9 @@ public class binarySearch {
         System.out.println("-----------");
         int result3 = search3(arr,6);
         System.out.println("Result 3 :: "+result3);
+
+       int result4 = search4(arr,13);
+        System.out.println("Result 4 :: "+result4);
     }
 
     public static int search(int[] arr,int item){
@@ -56,6 +59,21 @@ public class binarySearch {
         while(lo<=hi){
             int mid = lo+(hi-lo)/2;
             if(arr[mid] == item) {
+                return mid;
+            }else if(arr[mid] < item){
+                lo = mid+1;
+            }else{
+                hi = mid-1;
+            }
+        }
+        return -1;
+    }
+
+    public static int search4(int[] arr, int item){
+        int lo=0, hi=arr.length-1;
+        while(lo<=hi){
+            int mid = lo+(hi-lo)/2;
+            if(arr[mid]==item){
                 return mid;
             }else if(arr[mid] < item){
                 lo = mid+1;
