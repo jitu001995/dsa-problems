@@ -7,5 +7,11 @@ public class AbstractFactoryPattern {
 
         uiFactory.createButton();
         uiFactory.createCheckbox();
+
+        IButton button = uiFactory.createButton();
+        button.createButton();
+
+        ICheckbox checkbox = uiFactory.createCheckbox();
+        checkbox.createCheck();
     }
 }

@@ -123,7 +123,84 @@ public class ListNode {
         return 0;
     }
 
+    public void reverseList(){
+        Node prev = null;
+        Node curr=head;
 
+        tail = head;
+         while(curr !=null){
+             Node nextNode = curr.next;
+             curr.next = prev;
+             prev = curr;
+             curr = nextNode;
+
+         }
+         head = prev;
+    }
+
+    public boolean detectCycle(){
+        if(head==null || head.next == null){
+            return false;
+        }
+
+        Node slow=head;
+        Node fast=head;
+        while(slow !=null && fast !=null && fast.next !=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        if(slow == fast){
+            return true;
+        }
+        return false;
+    }
+    public Node reverseKGroup(Node head, int k) {
+
+        if (head == null || k <= 1) {
+            return head;
+        }
+
+        Node curr = head;
+        Node prev = null;
+        Node next = null;
+
+        int count = 0;
+
+        while (curr != null && count < k) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+            count++;
+        }
+
+        if (next != null) {
+            head.next = reverseKGroup(next, k);
+        }
+
+        return prev;
+    }
+
+    public void reverseListKGroup(int k){
+       head =  reverseKGroup(head,3);
+    }
+
+    public void removeDuplicate(){
+        if(head == null || head.next==null){
+            return;
+        }
+        Node curr=head;
+        while(curr !=null && curr.next !=null){
+            if(curr.val == curr.next.val){
+                curr.next = curr.next.next;
+                size--;
+            }else{
+                curr = curr.next;
+            }
+
+        }
+        tail=curr;
+    }
     public static void main(String[] args){
         ListNode list = new ListNode();
 
@@ -134,6 +211,7 @@ public class ListNode {
     //    list.display();
 
         list.addLast(40);
+        list.addLast(50);
         list.addLast(50);
       //  list.display();
 
@@ -148,5 +226,24 @@ public class ListNode {
        System.out.println("Last :: "+last);
        int indexVal = list.getAtIndex(3);
        System.out.println("At Index :: "+indexVal);
+
+       list.reverseList();
+       System.out.println("After reverse : ");
+       list.display();
+
+      boolean hasCycle= list.detectCycle();
+      System.out.println("detect Cycle :: "+hasCycle);
+
+       list.reverseListKGroup(3);
+        System.out.println("After reversing List in group : ");
+        list.display();
+
+        System.out.println("before removing Duplicate  : ");
+        list.display();
+        list.removeDuplicate();
+        System.out.println("After removing Duplicate  : ");
+        list.display();
+
+
     }
 }
