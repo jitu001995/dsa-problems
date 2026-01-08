@@ -20,6 +20,7 @@ public class StringPermutation{
 
             char ch = remaining.charAt(i);
 
+
             String left = remaining.substring(0, i);
             String right = remaining.substring(i + 1);
 
