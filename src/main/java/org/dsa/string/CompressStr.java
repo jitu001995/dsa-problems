@@ -2,7 +2,7 @@ package org.dsa.string;
 
 public class CompressStr {
     public static void main(String[] args) {
-        String str = "aaabbcc";
+        String str = "aaabbccaa";
        String res = compressString(str);
        System.out.println(" Compress String :: "+res);
     }
