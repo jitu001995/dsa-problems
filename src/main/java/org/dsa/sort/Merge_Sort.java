@@ -35,7 +35,6 @@ public class Merge_Sort {
         while(i<m && j<n){
             if(arr1[i] < arr2[j]){
                 ans[k++]=arr1[i++];
-
             }else{
                 ans[k++] = arr2[j++];
             }

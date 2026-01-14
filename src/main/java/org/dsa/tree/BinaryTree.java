@@ -87,17 +87,27 @@ public class BinaryTree {
         }
     }
 
-    private int isBalanced(Node root){
-        if(root==null) return 0;
-        int lh=isBalanced(root.left);
-        if(lh==-1) return -1;
-        int rh=isBalanced(root.right);
-        if(rh==-1) return -1;
-        if(Math.abs(lh-rh)>1) return -1;
-        else{
-            return Math.max(lh,rh)+1;
-        }
+    private int isBalanced(Node root) {
+        // 1️⃣ Empty tree has height 0 → balanced
+        if (root == null) return 0;
+
+        // 2️⃣ Check left subtree
+        int lh = isBalanced(root.left);
+        if (lh == -1) return -1; // left subtree unbalanced
+
+        // 3️⃣ Check right subtree
+        int rh = isBalanced(root.right);
+        if (rh == -1) return -1; // right subtree unbalanced
+
+        // 4️⃣ Check balance condition at current node
+        if (Math.abs(lh - rh) > 1)
+            return -1; // current node is unbalanced
+
+        // 5️⃣ Return height if balanced
+        return Math.max(lh, rh) + 1;
     }
+
+
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
 

@@ -10,7 +10,7 @@ public class groupAnagram {
         groupedList.forEach(System.out::println);
     }
 
-    private static List<List<String>> groupedAnagram(String[] words) {
+    private static List<List<String> > groupedAnagram(String[] words) {
         Map<String,List<String>> groupedMap = new HashMap<>();
 
         for(String word : words){
