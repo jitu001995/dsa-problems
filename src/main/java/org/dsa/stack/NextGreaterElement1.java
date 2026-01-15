@@ -17,7 +17,6 @@ public class NextGreaterElement1 {
     }
 
 
-
     public static int[] findNextGreater(int[]arr){
         int n=arr.length;
         int[] nge = new int[n];

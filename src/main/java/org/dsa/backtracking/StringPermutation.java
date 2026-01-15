@@ -24,7 +24,7 @@ public class StringPermutation{
             String left = remaining.substring(0, i);
             String right = remaining.substring(i + 1);
 
-            permute(prefix + ch, left + right);
+             permute(prefix + ch, left + right);
         }
     }
 
