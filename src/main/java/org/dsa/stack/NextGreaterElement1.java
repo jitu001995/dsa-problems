@@ -46,4 +46,5 @@ public class NextGreaterElement1 {
         return nge;
     }
 
+
 }

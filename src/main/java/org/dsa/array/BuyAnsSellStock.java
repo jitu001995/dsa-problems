@@ -22,4 +22,17 @@ public class BuyAnsSellStock {
 
     }
 
+    private static int maxProfitSofar(int[] arr){
+        int minSoFar=arr[0];
+        int ans =0;
+        for(int i=1; i<arr.length; i++){
+            int profit = arr[i]-minSoFar;
+            if(profit > ans){
+                ans = profit;
+            }
+            minSoFar = Math.min(arr[i],minSoFar);
+        }
+        return ans;
+    }
+
 }

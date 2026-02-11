@@ -46,4 +46,7 @@ public class NextGreaterElement2 {
           }
           return res;
       }
+
+
+
 }

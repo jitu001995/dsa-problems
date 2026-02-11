@@ -1,5 +1,6 @@
 package org.dsa.PRIORITYQueue;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -7,8 +8,9 @@ import java.util.PriorityQueue;
 public class TopKFrequentElements {
     public static void main(String[] args){
         int[] arr={1,2,3,4,5};
-        int k=2;
+        int k=3;
         int[] result = topKFrequent(arr,k);
+        System.out.println(Arrays.toString(result));
     }
 
     public static int[] topKFrequent(int[] arr,int k){
@@ -32,7 +34,4 @@ public class TopKFrequentElements {
         }
         return result;
     }
-
-
-
 }
