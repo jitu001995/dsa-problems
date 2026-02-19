@@ -15,7 +15,7 @@ public class MakeArraySquare {
          int[] res=new int[n];
          int idx=n-1;
          while(left<=right){
-             int leftSq = arr[left]*arr[left];
+             int leftSq = arr[left] *arr[left];
              int rightSq = arr[right]*arr[right];
              if(leftSq>rightSq){
                  res[idx--]=leftSq;

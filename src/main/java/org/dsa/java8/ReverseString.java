@@ -17,7 +17,8 @@ public class ReverseString {
 
 
         String str1="hello";
-        String rev = Arrays.stream(str1.split("")).sorted(Comparator.reverseOrder()).collect(Collectors.joining());
+        String rev = Arrays.stream(str1.split(""))
+                      .sorted(Comparator.reverseOrder()).collect(Collectors.joining());
         System.out.println("Rev :: "+rev);
 
     }

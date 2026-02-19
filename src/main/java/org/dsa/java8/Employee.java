@@ -1,5 +1,6 @@
 package org.dsa.java8;
 class Employee {
+    private int id;
     private String name;
     private int age;
     private String department;
@@ -11,7 +12,16 @@ class Employee {
         this.department = department;
         this.salary = salary;
     }
-
+    public Employee(int id,String name, int age, String department,Double salary) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.department = department;
+        this.salary = salary;
+    }
+    public int getId() {
+        return id;
+    }
     public int getAge() {
         return age;
     }
