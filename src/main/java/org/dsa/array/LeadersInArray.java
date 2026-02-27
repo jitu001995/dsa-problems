@@ -20,6 +20,7 @@ public class LeadersInArray {
         int n = arr.length - 1;
         int maxRight = arr[n - 1];
         List<Integer> result = new ArrayList<>();
+
         result.add(maxRight);
         for (int i = n - 1; i >= 0; i--) {
             if (arr[i] > maxRight) {

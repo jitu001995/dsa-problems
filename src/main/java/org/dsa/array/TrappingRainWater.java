@@ -1,6 +1,6 @@
 package org.dsa.array;
 
-public class TrappingRainWater {
+public class  TrappingRainWater {
 
     public static void main(String[] args) {
         int[] height = {4, 2, 0, 3, 2, 5};

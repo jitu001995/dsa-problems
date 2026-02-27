@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class MoveZeros {
     public static void main(String[] args){
         int []nums = {0,1,0,3,12};
+        // output = [1, 3, 12, 0, 0]
         moveZeros2(nums);
         System.out.println(Arrays.toString(nums));
     }

@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class moveNegatives {
     public static void main(String[] args){
         int[] arr = {1, -2, 3, -4, -1, 4, -6};
+        // output = [-2, -4, -1, -6, 3, 4, 1]
         moveNegatives(arr);
         System.out.println(Arrays.toString(arr));
 

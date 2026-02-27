@@ -19,11 +19,15 @@ public class M_Meeting_In_Rooms {
 
     private static int maxMeeting(int[][] meetings) {
 
+        // Sorting the meetings array based on end time
+        //We always p ick the meeting that finishes earliest.
         Arrays.sort(meetings,(a, b)->a[1]-b[1]);
-        int count = 1;
-        int lastEnd = meetings[0][1];
+        int count = 1;  //We always select the first meeting So we already have at least one meeting selected
+        int lastEnd = meetings[0][1];  //Track Last End Time
         for(int i=1; i<meetings.length; i++){
             if(meetings[i][0]>lastEnd){
+                // Current meeting should start after previous meeting ends
+                // If true: No overlap We can select it
                 count++;
                 lastEnd=meetings[i][1];
             }

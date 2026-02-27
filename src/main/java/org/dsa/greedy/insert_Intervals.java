@@ -22,20 +22,33 @@ public class insert_Intervals {
         System.out.println(Arrays.deepToString(result));
     }
 
-    public static int[][] insert(int[][] intervals,int[] newInterval){
-         List<int[]> result = new ArrayList<>();
-         for(int[] curr : intervals){
-             if(curr[1]>newInterval[0]){
-                 result.add(curr);
-             }else if(curr[0]>newInterval[1]){
-                 result.add(newInterval);
-                  newInterval = curr;
-             }else{
-                 newInterval[0] = Math.min(newInterval[0], curr[0]);
-                 newInterval[1] = Math.max(newInterval[1], curr[1]);
-             }
-         }
-         result.add(newInterval);
-         return result.toArray(new int[result.size()][]);
+    public static int[][] insert(int[][] intervals, int[] newInterval) {
+
+        List<int[]> result = new ArrayList<>();
+
+        for (int[] curr : intervals) {
+
+            // CASE 1: Current interval is completely BEFORE newInterval
+            if (curr[1] < newInterval[0]) {
+                result.add(curr);
+            }
+
+            // CASE 2: Current interval is completely AFTER newInterval
+            else if (curr[0] > newInterval[1]) {
+                result.add(newInterval);
+                newInterval = curr;
+            }
+
+            // CASE 3: Overlapping case
+            else {
+                newInterval[0] = Math.min(newInterval[0], curr[0]);
+                newInterval[1] = Math.max(newInterval[1], curr[1]);
+            }
+        }
+
+        // Add the last interval
+        result.add(newInterval);
+
+        return result.toArray(new int[result.size()][]);
     }
 }

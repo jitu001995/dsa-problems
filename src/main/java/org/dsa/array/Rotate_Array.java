@@ -8,8 +8,7 @@ public class Rotate_Array{
         int k=2;
 
         rotate(arr,k);
-
-        System.out.println("Arrays :: "+ Arrays.toString(arr));
+          System.out.println("Arrays :: "+ Arrays.toString(arr));
     }
 
     private static void rotate(int[] arr, int k) {
