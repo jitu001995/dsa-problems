@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 
 public class TopKFrequentElements {
     public static void main(String[] args){
-        int[] arr={1,2,3,4,5};
+        int[] arr={1,1,1,2,2,3};
         int k=3;
         int[] result = topKFrequent(arr,k);
         System.out.println(Arrays.toString(result));
