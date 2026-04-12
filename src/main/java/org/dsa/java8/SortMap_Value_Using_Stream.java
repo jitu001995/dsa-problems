@@ -17,7 +17,7 @@ public class SortMap_Value_Using_Stream {
         map.put("banana",15);
 
       System.out.println(" Map :: "+map);
-        Map<String, Integer> newMap  =   map.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(
+      Map<String, Integer> newMap  =   map.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(
                 Map.Entry::getKey,
                 Map.Entry::getValue,
                 (oldValue, newValue)->oldValue,
@@ -26,5 +26,11 @@ public class SortMap_Value_Using_Stream {
         ));
 
         System.out.println("New Map :: "+newMap);
+
+        Map<String,Integer> newSortedMap =  map.entrySet().stream().sorted(Map.Entry.comparingByValue()).collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,(oldValue,newValue)->oldValue,LinkedHashMap::new));
+
+        System.out.println(" New Sorted Map :: "+newSortedMap);
     }
+
+
 }

@@ -1,4 +1,4 @@
-package org.dsa.PRIORITYQueue;
+package org.dsa.Heap;
 
 import java.util.Arrays;
 import java.util.HashMap;

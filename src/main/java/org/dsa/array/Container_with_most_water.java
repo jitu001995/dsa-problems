@@ -5,6 +5,8 @@ public class Container_with_most_water {
         int[] height={1,8,6,2,5,4,8,3,7};
      int result = maxArea(height);
      System.out.println("Result ::"+result);
+     // Time Complexity:O(n)
+        // Space Complexity:O(1)
     }
     public static  int maxArea(int[] height) {
         int left = 0, right = height.length - 1;
@@ -24,4 +26,7 @@ public class Container_with_most_water {
 
         return maxArea;
     }
+
+
 }
+

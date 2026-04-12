@@ -49,6 +49,15 @@ public class Top3_ByDept {
         });
 
 
+    Map<String, List<Employee>> top3ByDepts = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.collectingAndThen(
+            Collectors.toList(),
+            list-> list.stream().sorted(Comparator.comparing(Employee::getSalary).reversed())
+                    .limit(3).collect(Collectors.toList())
+    )));
+
+    top3ByDepts.forEach((dept, empList)->{
+        System.out.println(dept +" --< "+empList);
+    });
 
     }
 }

@@ -1,6 +1,6 @@
 package org.dsa.string;
 
-public class LongestConsequitiveSubString {
+public class  LongestConsequitiveSubString {
     public static void main(String[] args) {
         String s = "abcdefmnopqrstuvwabcdefghijklmnwxyz";
         System.out.println(longestConsecutiveSubstring(s));

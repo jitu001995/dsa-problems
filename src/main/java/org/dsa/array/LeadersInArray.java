@@ -11,18 +11,16 @@ public class LeadersInArray {
 
         List<Integer> result = findLeaders(arr);
         System.out.println("Result List ::"+result);
-        System.out.println("Leaders 2 finding :: "+ Arrays.toString(arr));
-        List<Integer> result2 = findLeaders2(arr);
-        System.out.println("Find leaders 2 :: "+result2);
+
     }
 
     public static List<Integer> findLeaders(int[] arr) {
-        int n = arr.length - 1;
+        int n = arr.length;
         int maxRight = arr[n - 1];
         List<Integer> result = new ArrayList<>();
 
         result.add(maxRight);
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = n - 2; i >= 0; i--) {
             if (arr[i] > maxRight) {
                 maxRight = arr[i];
                 result.add(maxRight);
@@ -33,19 +31,5 @@ public class LeadersInArray {
         return result;
     }
 
-
-    public static List<Integer> findLeaders2(int[] arr){
-        int n = arr.length;
-        int maxRight = arr[n-1];
-        List<Integer> result = new ArrayList<>();
-        for(int i=n-2; i>=0; i--){
-            if(arr[i] > maxRight){
-                maxRight=arr[i];
-                result.add(maxRight);
-            }
-        }
-         Collections.reverse(result);
-        return result;
-    }
 
 }

@@ -22,4 +22,4 @@ public class RemoveDuplicate {
         }
         return j+1;
     }
-}
+    }

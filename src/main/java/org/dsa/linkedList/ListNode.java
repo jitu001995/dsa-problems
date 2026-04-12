@@ -4,7 +4,7 @@ public class ListNode {
 
     public class Node{
         int val;
-        Node next;
+         Node next;
     }
     private Node head;
     private Node tail;
@@ -103,6 +103,7 @@ public class ListNode {
         }else{
             Node prev = getNode(size-2);
             int val =tail.val;
+            prev.next = null;
             tail = prev;
             size--;
             return val;

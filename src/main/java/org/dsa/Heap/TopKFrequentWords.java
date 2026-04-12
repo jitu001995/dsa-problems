@@ -1,4 +1,4 @@
-package org.dsa.PRIORITYQueue;
+package org.dsa.Heap;
 import java.util.*;
 
 public class TopKFrequentWords {
@@ -21,6 +21,8 @@ public class TopKFrequentWords {
         PriorityQueue<String> pq = new PriorityQueue<>((a, b) -> {
             if (map.get(a).equals(map.get(b))) {
                 return b.compareTo(a); // reverse lexicographical
+                 // here lexicographical is used because if frequency is same(equal) then
+                // Lexicographically smaller word to come first in final answer
             }
             return map.get(a) - map.get(b); // smaller freq first
         });
