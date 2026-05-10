@@ -120,7 +120,7 @@ public class ListNode {
             prev.next = curr.next;
             size--;
             return curr.val;
-        }
+          }
         return 0;
     }
 
@@ -202,6 +202,121 @@ public class ListNode {
         }
         tail=curr;
     }
+    /*
+     below method return start of the cycle
+     */
+    public Node detectCycle2(Node head) {
+        if(head == null || head.next == null) return null;
+
+        Node slow = head;
+        Node fast = head;
+
+        // Step 1: detect cycle
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                // Step 2: find cycle start
+                slow = head;
+
+                while(slow != fast){
+                    slow = slow.next;
+                    fast = fast.next;
+                  /*  After detecting the cycle, we reset one pointer
+                    to head and move both pointers one step at a time.
+                    Their meeting point gives the starting node of the cycle.
+
+                   */
+                }
+
+                return slow; // cycle start node
+            }
+        }
+
+        return null; // no cycle
+    }
+
+    public Node middleNode(Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
+    }
+    public boolean isPalindrome() {
+        if (head == null && head.next == null) return false;
+
+        // find middle
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        // Reverse Node
+        Node prev = null;
+        while (slow != null) {
+            Node next = slow.next;
+            prev = slow;
+            slow = next;
+        }
+
+        // compare
+        Node first = head;
+        Node second = prev;
+        while (second != null) {
+            if (first.val != second.val) return false;
+            first = first.next;
+            second = second.next;
+        }
+        return true;
+
+    }
+
+    public void reorderList() {
+        if(head == null || head.next == null) return;
+
+        // Step 1: find middle
+        Node slow = head, fast = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // Step 2: split list
+        Node second = slow.next;
+        slow.next = null;   // 🔥 VERY IMPORTANT
+
+        // Step 3: reverse second half
+        Node prev = null;
+        while(second != null){
+            Node next = second.next;
+            second.next = prev;
+            prev = second;
+            second = next;
+        }
+
+        // Step 4: merge two halves
+        Node first = head;
+        Node secondHalf = prev;
+
+        while(secondHalf != null){
+            Node temp1 = first.next;
+            Node temp2 = secondHalf.next;
+
+            first.next = secondHalf;
+            secondHalf.next = temp1;
+
+            first = temp1;
+            secondHalf = temp2;
+        }
+    }
+
     public static void main(String[] args){
         ListNode list = new ListNode();
 
@@ -244,7 +359,12 @@ public class ListNode {
         list.removeDuplicate();
         System.out.println("After removing Duplicate  : ");
         list.display();
-
-
+        System.out.println("\n------------> ");
+        System.out.println("List is Palindrome :: "+list.isPalindrome());
+        System.out.println("\n ----> before reorder --->");
+        list.display();
+        System.out.println("\n---> Reorder list -->");
+        list.reorderList();
+        list.display();
     }
 }
