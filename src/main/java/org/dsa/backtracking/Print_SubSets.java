@@ -42,7 +42,7 @@ public class Print_SubSets {
         current.add(arr[index]);
         generateSubSets(arr, index + 1, current, result);
 
-        // Backtrack (remove last added element)
+         // Backtrack (remove last added element)
         current.remove(current.size() - 1);
     }
  public static void generateSubSets2(int[] arr,int index, List<Integer> current,List<List<Integer>> result){

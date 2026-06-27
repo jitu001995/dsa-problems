@@ -7,8 +7,8 @@ import java.util.PriorityQueue;
 class Solution {
     class DualHeap {
 
-        PriorityQueue<Integer> small; // max heap
-        PriorityQueue<Integer> large; // min heap
+        PriorityQueue<Integer> small;
+        PriorityQueue<Integer> large;
 
         Map<Integer, Integer> delayed;
 

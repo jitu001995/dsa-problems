@@ -9,7 +9,7 @@ public class Combination_Of_Sum {
         int[] arr={2,3,4,6,7};
         int sum = 7;
 
-        List<Integer> arrList = new ArrayList<>();
+        List<Integer> arrList  = new ArrayList<>();
         List<List<Integer>> ans = new ArrayList<>();
 
         findCombination(arr,sum,arrList,ans,0);

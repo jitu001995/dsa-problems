@@ -1,4 +1,4 @@
-package org.dsa.array;
+       package org.dsa.array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,8 +29,9 @@ public class TripletSum {
                 if (sum == 0) {
                     result.add(Arrays.asList(nums[i], nums[left], nums[right]));
 
-                    // skip duplicates
+                    // // Skip duplicate left values
                     while (left < right && nums[left] == nums[left + 1]) left++;
+                    // Skip duplicate right values
                     while (left < right && nums[right] == nums[right - 1]) right--;
 
                     left++;
